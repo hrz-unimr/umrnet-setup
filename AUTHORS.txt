@@ -1,0 +1,5 @@
+* Current Authors
+Bernd Nicklas <nicklas@hrz.uni-marburg.de>
+
+* Original Author
+Bernd Nicklas <berndnicklas@gmail.com>

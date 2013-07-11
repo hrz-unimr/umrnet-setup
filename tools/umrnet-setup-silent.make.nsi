@@ -1,5 +1,5 @@
 # umrnet-setup, university marburg network setup
-# Copyright (C) 2010-2012 Bernd Nicklas <berndnicklas@gmail.com>
+# Copyright (C) 2010-2013 the umrnet-setup authors, see AUTHORS.txt
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,24 +21,18 @@ SetCompressor /FINAL /SOLID lzma
 !include "MUI2.nsh"
 
 # Set installer name
-outFile ".\bin\umrnet-setup.exe"
+outFile ".\bin\umrnet-setup-silent.exe"
 Name "umrnet-setup"
 
 # Set Windows UAC execution level to administrator
 RequestExecutionLevel admin 
 
-# Set modern user interface page
-!insertmacro MUI_PAGE_INSTFILES
-
-# Set modern user interface language
-!insertmacro MUI_LANGUAGE "English"
- 
 # Set installation directory
 installDir $TEMP\umrnet-setup
 
 # Function executed on installation success 
 Function .onInstSuccess
-    Exec "$INSTDIR\umrnet-setup.bat"
+    Exec "$INSTDIR\umrnet-setup-silent.bat"
 FunctionEnd
 
 # Start section
@@ -50,7 +44,7 @@ section
     # Set the installation directory
     setOutPath $INSTDIR
 
-	# Set files that will be included
+    # Set files that will be included
     file .\src\*.*
     file .\*.txt
      

@@ -1,5 +1,5 @@
 umrnet-setup, university marburg network setup
-Copyright (C) 2010-2012 Bernd Nicklas <berndnicklas@gmail.com>
+Copyright (C) 2010-2013 the umrnet-setup authors, see AUTHORS.txt
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -33,14 +33,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   Read the well documented source code.
 
-* Author(s)
+* Authors & Copyrights
 
-  Written by Bernd Nicklas <berndnicklas@gmail.com>.
+  See AUTHORS.txt
   
-* Copyright(s)
-
-  Copyright (C) 2010-2012 Bernd Nicklas <berndnicklas@gmail.com>.
-
 * License
 
   umrnet-setup is distributed under the terms of the GNU General 
