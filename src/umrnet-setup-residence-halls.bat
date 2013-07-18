@@ -143,13 +143,6 @@ sc start dot3svc
 
 echo.
 
-REM As a precaution against wrong user interaction (e.g. "I don't know how to
-REM enable my LAN-adapter"), try to enable all physical network adapters
-echo Try to enable all physical network adapters...
-wmic path win32_networkadapter where (PhysicalAdapter=True) call enable
-
-echo.
-
 REM Try to import LAN profile into all existing LAN adapters
 echo Try to install LAN profile...
 netsh lan add profile filename="netsh-profile-lan.xml" interface="*"

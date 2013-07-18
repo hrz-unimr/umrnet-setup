@@ -21,7 +21,7 @@ SetCompressor /FINAL /SOLID lzma
 !include "MUI2.nsh"
 
 # Set installer name
-outFile ".\bin\umrnet-setup-residence-halls.exe"
+outFile "..\bin\umrnet-setup-residence-halls.exe"
 Name "umrnet-setup"
 
 # Set Windows UAC execution level to administrator
@@ -38,6 +38,7 @@ installDir $TEMP\umrnet-setup
 
 # Function executed on installation success 
 Function .onInstSuccess
+    # Start umrnet setup batch script
     Exec "$INSTDIR\umrnet-setup-residence-halls.bat"
 FunctionEnd
 
@@ -51,7 +52,10 @@ section
     setOutPath $INSTDIR
 
     # Set files that will be included
-    file .\src\*.*
-    file .\*.txt
+    file ..\src\*.*
+    file ..\*.txt
+    
+    # Automatically close installer after finished
+    SetAutoClose true
      
 sectionEnd

@@ -17,11 +17,8 @@
 # Set compression to lzma (solid)
 SetCompressor /FINAL /SOLID lzma
 
-# Include modern user interface
-!include "MUI2.nsh"
-
 # Set installer name
-outFile ".\bin\umrnet-setup-silent.exe"
+outFile "..\bin\umrnet-setup-silent.exe"
 Name "umrnet-setup"
 
 # Set Windows UAC execution level to administrator
@@ -32,6 +29,7 @@ installDir $TEMP\umrnet-setup
 
 # Function executed on installation success 
 Function .onInstSuccess
+    # Start umrnet setup batch script
     Exec "$INSTDIR\umrnet-setup-silent.bat"
 FunctionEnd
 
@@ -45,7 +43,10 @@ section
     setOutPath $INSTDIR
 
     # Set files that will be included
-    file .\src\*.*
-    file .\*.txt
-     
+    file ..\src\*.*
+    file ..\*.txt
+
+    # Automatically close installer after finished
+    SetAutoClose true
+         
 sectionEnd
