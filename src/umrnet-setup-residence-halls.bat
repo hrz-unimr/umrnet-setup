@@ -57,14 +57,6 @@ echo umrnet-setup comes with ABSOLUTELY NO WARRANTY. This is free software, and
 echo you are welcome to redistribute it under certain conditions. See the GNU 
 echo General Public License Version 3 for details.
 echo.
-echo If ready, continue...
-pause
-
-cls
-echo ------------------------------------------------------------------------------
-echo umrnet-setup, university marburg network setup
-echo ------------------------------------------------------------------------------
-echo.
 echo Please read carefully and follow the instructions.
 echo.
 echo If ready, continue...
@@ -107,57 +99,199 @@ pause
 
 cls
 
-REM Try to open network connections (Windows XP, Windows Vista and later)
+echo.
+
+REM Detect Windows Version
+
+ver | findstr /i " 5\.0\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_win2000
+
+ver | findstr /i " 5\.1\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_winXP
+
+ver | findstr /i " 5\.2\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_win2003
+
+ver | findstr /i " 6\.0\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_winvista
+
+ver | findstr /i " 6\.1\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_win7
+
+ver | findstr /i " 6\.2\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_win8
+
+ver | findstr /i " 6\.3\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_win81
+
+goto os_error
+
+
+:os_win2000
+echo Detected Windows 2000.
+call :os_error
+
+
+:os_winxp
+echo Detected Windows XP.
+call :os_error
+
+
+:os_win2003
+echo Detected Windows 2003.
+call :os_error
+
+
+:os_winvista
+echo Detected Windows Vista.
+call :install_prerequesites
+call :install_profiles_peap
+call :install_additional
+call :install_end
+
+:os_win7
+echo Detected Windows 7.
+call :install_prerequesites
+call :install_profiles_peap
+call :install_additional
+call :install_end
+
+:os_win8
+echo Detected Windows 8.0.
+call :install_prerequesites
+call :install_profiles_ttls
+call :install_additional
+call :install_end
+
+:os_win81
+echo Detected Windows 8.1.
+call :install_prerequesites
+call :install_profiles_ttls
+call :install_additional
+call :install_end
+
+:os_error
+echo This Windows version is not supported.
+echo.
+echo If ready, continue...
+pause
+exit
+
+
+:install_prerequesites
+
+cls
+
+REM Try to open network connections
 echo Try to open control panel network connections dialog...
 ncpa.cpl
 timeout /t 4 /nobreak
 echo If ready, continue...
 pause
 
+cls
+
 echo.
 
-REM Try to install root certificate (Windows Vista and later)
+REM Try to install root certificate
 echo Try to install root certificate...
 certutil -addstore -enterprise -f Root "deutsche-telekom-root-ca-2.crt"
 
 echo.
 
-REM Try to start service: wireless auto config (Windows Vista and later)
+REM Try to start service: wireless auto config
 echo Try to configure wlansvc service...
 sc config wlansvc start= auto
 sc start wlansvc
 
 echo.
 
-REM Try to start service: wireless zero configuration (Windows XP)
-echo Try to configure wzcsvc service...
-sc config wzcsvc start= auto
-sc start wzcsvc
-
-echo.
-
-REM Start service: wired auto config (Windows XP, Windows Vista and later)
+REM Start service: wired auto config
 echo Try to configure dot3svc service...
 sc config dot3svc start= auto
 sc start dot3svc
 
 echo.
 
+goto :eof
+
+
+:install_profiles_peap
+
+echo.
+
+echo Install network profiles (PEAP)
+
+echo.
+
+echo Try to install LAN profile...
+netsh lan add profile filename="netsh-profile-lan-peap.xml" interface="*"
+
+echo.
+
+echo Try to install WLAN profile for students...
+netsh wlan add profile filename="netsh-profile-wlan-students-peap.xml" interface="*" user=all
+
+echo.
+
+echo Try to install WLAN profile for staff...
+netsh wlan add profile filename="netsh-profile-wlan-staff-peap.xml" interface="*" user=all
+
+echo.
+
+echo Try to install WLAN profile for eduroam...
+netsh wlan add profile filename="netsh-profile-wlan-eduroam-peap.xml" interface="*" user=all
+
+echo.
+
+echo Try to install WLAN profile for collegium...
+netsh wlan add profile filename="netsh-profile-wlan-collegium-peap.xml" interface="*" user=all
+
+goto :eof
+
+
+:install_profiles_ttls
+
+echo.
+
+echo Install network profiles (TTLS)
+
+echo.
+
 REM Try to import LAN profile into all existing LAN adapters
 echo Try to install LAN profile...
-netsh lan add profile filename="netsh-profile-lan.xml" interface="*"
+netsh lan add profile filename="netsh-profile-lan-ttls.xml" interface="*"
 
 echo.
 
 REM Try to import WLAN profiles into all existing WLAN adapters
 
 echo Try to install WLAN profile for students...
-netsh wlan add profile filename="netsh-profile-wlan-students.xml" interface="*" user=all
+netsh wlan add profile filename="netsh-profile-wlan-students-ttls.xml" interface="*" user=all
 
 echo.
 
 echo Try to install WLAN profile for staff...
-netsh wlan add profile filename="netsh-profile-wlan-staff.xml" interface="*" user=all
+netsh wlan add profile filename="netsh-profile-wlan-staff-ttls.xml" interface="*" user=all
+
+echo.
+
+echo Try to install WLAN profile for eduroam...
+netsh wlan add profile filename="netsh-profile-wlan-eduroam-ttls.xml" interface="*" user=all
+
+echo.
+
+echo Try to install WLAN profile for collegium...
+netsh wlan add profile filename="netsh-profile-wlan-collegium-ttls.xml" interface="*" user=all
+
+goto :eof
+
+
+:install_additional
+
+echo.
+
+echo Install additional settings
 
 echo.
 
@@ -272,4 +406,13 @@ echo.
 echo If ready, continue...
 pause
 
+goto :eof
+
+
+:install_end
+
 endlocal
+
+exit
+
+REM Keep this last line.
