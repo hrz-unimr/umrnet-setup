@@ -1,5 +1,5 @@
 umrnet-setup, university marburg network setup
-Copyright (C) 2010-2013 the umrnet-setup authors, see AUTHORS.txt
+Copyright (C) 2010-2014 the umrnet-setup authors, see AUTHORS.txt
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
