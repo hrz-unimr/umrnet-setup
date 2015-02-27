@@ -6,6 +6,7 @@
 			<hex>436F6C6C656769756D</hex>
 			<name>Collegium</name>
 		</SSID>
+		<nonBroadcast>false</nonBroadcast>
 	</SSIDConfig>
 	<connectionType>ESS</connectionType>
 	<connectionMode>manual</connectionMode>
@@ -20,7 +21,7 @@
 			<OneX xmlns="http://www.microsoft.com/networking/OneX/v1">
 				<cacheUserData>true</cacheUserData>
 				<authMode>user</authMode>
-				<EAPConfig><EapHostConfig xmlns="http://www.microsoft.com/provisioning/EapHostConfig"><EapMethod><Type xmlns="http://www.microsoft.com/provisioning/EapCommon">25</Type><VendorId xmlns="http://www.microsoft.com/provisioning/EapCommon">0</VendorId><VendorType xmlns="http://www.microsoft.com/provisioning/EapCommon">0</VendorType><AuthorId xmlns="http://www.microsoft.com/provisioning/EapCommon">0</AuthorId></EapMethod><ConfigBlob>01000000560000000100000001000000010000002D00000015000000010000001400000085A408C09C193E5D51587DCDD61330FD8CDE37BF000001000000170000001A00000001000000000000000000000000000000</ConfigBlob></EapHostConfig></EAPConfig>
+				<EAPConfig><EapHostConfig xmlns="http://www.microsoft.com/provisioning/EapHostConfig"><EapMethod><Type xmlns="http://www.microsoft.com/provisioning/EapCommon">25</Type><VendorId xmlns="http://www.microsoft.com/provisioning/EapCommon">0</VendorId><VendorType xmlns="http://www.microsoft.com/provisioning/EapCommon">0</VendorType><AuthorId xmlns="http://www.microsoft.com/provisioning/EapCommon">0</AuthorId></EapMethod><Config xmlns="http://www.microsoft.com/provisioning/EapHostConfig"><Eap xmlns="http://www.microsoft.com/provisioning/BaseEapConnectionPropertiesV1"><Type>25</Type><EapType xmlns="http://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV1"><ServerValidation><DisableUserPromptForServerValidation>true</DisableUserPromptForServerValidation><ServerNames>radius.*\.uni-marburg.de</ServerNames><TrustedRootCA>85 a4 08 c0 9c 19 3e 5d 51 58 7d cd d6 13 30 fd 8c de 37 bf </TrustedRootCA></ServerValidation><FastReconnect>true</FastReconnect><InnerEapOptional>false</InnerEapOptional><Eap xmlns="http://www.microsoft.com/provisioning/BaseEapConnectionPropertiesV1"><Type>26</Type><EapType xmlns="http://www.microsoft.com/provisioning/MsChapV2ConnectionPropertiesV1"><UseWinLogonCredentials>false</UseWinLogonCredentials></EapType></Eap><EnableQuarantineChecks>false</EnableQuarantineChecks><RequireCryptoBinding>false</RequireCryptoBinding><PeapExtensions><PerformServerValidation xmlns="http://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV2">true</PerformServerValidation><AcceptServerName xmlns="http://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV2">true</AcceptServerName></PeapExtensions></EapType></Eap></Config></EapHostConfig></EAPConfig>
 			</OneX>
 		</security>
 	</MSM>
