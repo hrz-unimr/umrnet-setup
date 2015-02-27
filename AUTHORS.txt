@@ -1,4 +1,4 @@
-* Current Authors
+* Authors
 Bernd Nicklas <nicklas@hrz.uni-marburg.de>
 
 * Original Author

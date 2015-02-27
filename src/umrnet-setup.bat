@@ -1,7 +1,7 @@
 @echo off
 
 REM umrnet-setup, university marburg network setup
-REM Copyright (C) 2010-2014 the umrnet-setup authors, see AUTHORS.txt
+REM Copyright (C) 2010-2015 the umrnet-setup authors, see AUTHORS.txt
 REM
 REM This program is free software: you can redistribute it and/or modify
 REM it under the terms of the GNU General Public License as published by
@@ -50,7 +50,7 @@ echo umrnet-setup configures your LAN- and WLAN-/WiFi-connections in
 echo Windows Vista, Windows 7, Windows 8 and possibly later Windows
 echo versions for Philipps University Marburg network.
 echo.
-echo Copyright (C) 2010-2014 the umrnet-setup authors, see AUTHORS.txt
+echo Copyright (C) 2010-2015 the umrnet-setup authors, see AUTHORS.txt
 echo Web site: ^<https://github.org/hrz-unimr/umrnet-setup/^>
 echo.
 echo umrnet-setup comes with ABSOLUTELY NO WARRANTY. This is free software, and 
@@ -345,9 +345,9 @@ echo ---------------------------------------------------------------------------
 echo umrnet-setup, university marburg network setup
 echo ------------------------------------------------------------------------------
 echo.
-echo If you have to register your computer in university network (e.g. needed in 
-echo the student residence halls), please give your network agent or Internet-
-echo tutor the following information about your computer's manufacturer, model, 
+echo If you have to register your computer in university network (e.g. required in 
+echo the student residence hall or in the office), please give your network agent 
+echo the following information about your computer's manufacturer, model, 
 echo Windows version and your LAN-adapter's MAC-address (here: physical address).
 echo.
 echo If ready, continue...
