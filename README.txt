@@ -17,13 +17,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * Introduction
 
   umrnet-setup configures your LAN- and WLAN-/WiFi-connections in 
-  Windows Vista, Windows 7, Windows 8 and possibly later Windows
-  versions for Philipps University Marburg network.
+  Windows Vista, Windows 7, Windows 8, Windows 10 and possibly later 
+  Windows versions for Philipps University Marburg network.
 
 * Download
 
   You can download umrnet-setup from the following location:
-  https://gitorious.org/umrnet-setup/
+  https://github.com/hrz-unimr/umrnet-setup
   
 * How to use it
 
