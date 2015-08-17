@@ -165,21 +165,21 @@ call :install_end
 :os_win8
 echo Detected Windows 8.0.
 call :install_prerequesites
-call :install_profiles_ttls
+call :install_profiles_peap
 call :install_additional
 call :install_end
 
 :os_win81
 echo Detected Windows 8.1.
 call :install_prerequesites
-call :install_profiles_ttls
+call :install_profiles_peap
 call :install_additional
 call :install_end
 
 :os_win10
 echo Detected Windows 10.
 call :install_prerequesites
-call :install_profiles_ttls
+call :install_profiles_peap
 call :install_additional
 call :install_end
 
