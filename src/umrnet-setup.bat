@@ -47,8 +47,8 @@ echo umrnet-setup, university marburg network setup
 echo ------------------------------------------------------------------------------
 echo.
 echo umrnet-setup configures your LAN- and WLAN-/WiFi-connections in 
-echo Windows Vista, Windows 7, Windows 8 and possibly later Windows
-echo versions for Philipps University Marburg network.
+echo Windows Vista, Windows 7, Windows 8, Windows 10 and possibly later 
+echo Windows versions for Philipps University Marburg network.
 echo.
 echo Copyright (C) 2010-2015 the umrnet-setup authors, see AUTHORS.txt
 echo Web site: ^<https://github.org/hrz-unimr/umrnet-setup/^>
