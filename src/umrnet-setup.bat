@@ -124,6 +124,12 @@ IF %ERRORLEVEL% EQU 0 call :os_win8
 ver | findstr /i " 6\.3\." > nul
 IF %ERRORLEVEL% EQU 0 call :os_win81
 
+ver | findstr /i " 6\.4\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_win10
+
+ver | findstr /i " 10\.0\." > nul
+IF %ERRORLEVEL% EQU 0 call :os_win10
+
 goto os_error
 
 
@@ -165,6 +171,13 @@ call :install_end
 
 :os_win81
 echo Detected Windows 8.1.
+call :install_prerequesites
+call :install_profiles_ttls
+call :install_additional
+call :install_end
+
+:os_win10
+echo Detected Windows 10.
 call :install_prerequesites
 call :install_profiles_ttls
 call :install_additional
